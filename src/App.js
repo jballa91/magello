@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Router, Route, Switch } from "react-router-dom";
+import history from "./utils/history";
 
+import PrivateRoute from "./components/PrivateRoute";
+import NavBar from "./components/NavBar";
+import SplashPage from "./components/SplashPage";
+import HomePage from "./components/HomePage";
+import Profile from "./components/Profile";
+import ExternalApi from "./views/ExternalApi";
+
+import { useAuth0 } from "./magello-spa";
 function App() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          {!isAuthenticated && <Route exact path="/" component={SplashPage} />}
+          {isAuthenticated && <Route exact path="/" component={HomePage} />}
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
+        </Switch>
+      </Router>
     </div>
   );
 }
