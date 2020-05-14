@@ -38,7 +38,6 @@ export const Auth0Provider = ({
       if (isAuthenticated) {
         let user = await auth0FromHook.getUser();
         let token = await auth0FromHook.getTokenSilently();
-        // console.log(auth0FromHook);
         // console.log(user);
         // console.log(token);
         //update user on backend

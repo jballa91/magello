@@ -18,6 +18,16 @@
           justify-content: space-between;
 }
 
+.navbar_right {
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .navbar_left {
   height: 100%;
   display: -webkit-box;
@@ -26,7 +36,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 5px;
+  margin-left: 10px;
+  color: #666666;
 }
 
 .navbar_left h1 {
@@ -36,5 +47,29 @@
 
 .navlink {
   text-decoration: none;
+  margin-right: 10px;
+  color: white;
+}
+
+.navlink:hover {
+  color: #804e1d;
+}
+
+.navlink:not(:last-child) {
+  border-right: 1px solid white;
+  padding-right: 10px;
+}
+
+.logBtn {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: #2a6c80;
+}
+
+.logBtn:hover {
+  cursor: pointer;
+  background-color: #cc9258;
 }
 /*# sourceMappingURL=NavBar.module.css.map */

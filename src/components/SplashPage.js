@@ -8,10 +8,10 @@ const SplashPage = () => {
   if (loading) {
     return (
       <img
-        src={"../images/magellogo.gif"}
+        src={require("../images/magellogo.gif")}
         alt="loading"
-        height="400px"
-        width="400px"
+        height="100px"
+        width="100px"
       />
     );
   }

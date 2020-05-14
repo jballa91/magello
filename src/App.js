@@ -6,8 +6,11 @@ import PrivateRoute from "./components/PrivateRoute";
 import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
+import BoardPage from "./components/BoardPage";
 import Profile from "./components/Profile";
 import ExternalApi from "./views/ExternalApi";
+
+import styles from "./styles/App.module.css";
 
 import { useAuth0 } from "./magello-spa";
 function App() {
@@ -18,12 +21,19 @@ function App() {
         <header>
           <NavBar />
         </header>
-        <Switch>
-          {!isAuthenticated && <Route exact path="/" component={SplashPage} />}
-          {isAuthenticated && <Route exact path="/" component={HomePage} />}
-          <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/external-api" component={ExternalApi} />
-        </Switch>
+        <div className={styles.page_container}>
+          <Switch>
+            {!isAuthenticated && (
+              <Route exact path="/" component={SplashPage} />
+            )}
+            {isAuthenticated && (
+              <PrivateRoute exact path="/" component={HomePage} />
+            )}
+            <PrivateRoute path="/profile" component={Profile} />
+            <PrivateRoute path="/external-api" component={ExternalApi} />
+            <PrivateRoute path="/boards/:id" component={BoardPage} />
+          </Switch>
+        </div>
       </Router>
     </div>
   );

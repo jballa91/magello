@@ -31,13 +31,17 @@ const NavBar = () => {
         <div>
           {!isAuthenticated && (
             <button
-              className={styles.btn}
+              className={styles.logBtn}
               onClick={() => loginWithRedirect({})}
             >
               Log in
             </button>
           )}
-          {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+          {isAuthenticated && (
+            <button className={styles.logBtn} onClick={() => logout()}>
+              Log out
+            </button>
+          )}
         </div>
       </div>
     </div>
