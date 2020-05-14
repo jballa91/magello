@@ -1,6 +1,19 @@
 .list_box {
-  background-color: red;
+  background-color: #CCCCCC;
+  border-radius: 5px;
   width: 300px;
-  border: 1px solid white;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  margin: 10px 10px 0 0;
+}
+
+.list_box:first-child {
+  margin-left: 10px;
+}
+
+.list_box_name {
+  font-size: 26px;
 }
 /*# sourceMappingURL=ListBox.module.css.map */

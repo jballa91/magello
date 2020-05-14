@@ -14,11 +14,14 @@
   margin: 0 10px 10px 0;
   border-radius: 10px;
   height: 100px;
-  width: 150px;
-  background-color: red;
+  width: 180px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.board_card:hover {
+  opacity: .8;
 }
 
 .board_card .board_card_name {

@@ -10,6 +10,7 @@ const BoardPage = (props) => {
   const id = props.match.params.id;
 
   const [lists, setLists] = useState([]);
+  const [board, setBoard] = useState({});
 
   useEffect(() => {
     async function getLists(id) {
@@ -23,19 +24,23 @@ const BoardPage = (props) => {
           },
         }
       );
-      let { lists } = await res.json();
+      let { board, lists } = await res.json();
       setLists(lists);
+      setBoard(board);
     }
 
     getLists(id);
   }, [user]);
 
   return (
-    <>
+    <div
+      className={styles.boardpage_container}
+      style={{ backgroundColor: board.backgroundColor }}
+    >
       {lists.map((list) => {
         return <ListBox {...list} key={list.id} />;
       })}
-    </>
+    </div>
   );
 };
 

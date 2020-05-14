@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,IAAI;CAAG",
     "sources": [
         "BoardPage.module.sass"
     ],
