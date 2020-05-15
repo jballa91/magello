@@ -6,7 +6,7 @@
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
-  margin: 10px 10px 0 0;
+  margin: 10px 10px 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +21,7 @@
 }
 
 .list_box_name {
-  margin: 10px 0 0 20px;
+  margin: 10px 0 10px 20px;
   font-size: 16px;
   font-weight: 700;
 }

@@ -1,0 +1,18 @@
+.add_board__button {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 180px;
+  border-radius: 10px;
+}
+
+.add_board__button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.add_board__name {
+  margin: 10px 20px 0px 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+/*# sourceMappingURL=AddBoardButton.module.css.map */

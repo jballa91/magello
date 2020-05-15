@@ -6,7 +6,7 @@
 .boardpage_container {
   margin-top: 60px;
   width: 100%;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

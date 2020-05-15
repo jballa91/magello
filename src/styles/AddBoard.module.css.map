@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EAClB,MAAM,EAAE,aAAa;EACrB,aAAa,EAAE,IAAI;EACnB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;CAAG",
+    "sources": [
+        "AddBoard.module.sass"
+    ],
+    "names": [],
+    "file": "AddBoard.module.css"
+}

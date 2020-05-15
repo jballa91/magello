@@ -5,4 +5,8 @@
   margin-top: 10px;
   width: 272px;
 }
+
+.add_list__container:first-child {
+  margin-left: 10px;
+}
 /*# sourceMappingURL=AddList.module.css.map */

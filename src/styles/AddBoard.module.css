@@ -1,0 +1,10 @@
+.add_board__container {
+  margin: 0 10px 10px 0;
+  border-radius: 10px;
+  height: 100px;
+  width: 370px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=AddBoard.module.css.map */

@@ -9,7 +9,7 @@ import { api } from "../config";
 const HomePage = () => {
   const { loading, user, getTokenSilently } = useAuth0();
   const [boards, setBoards] = useState([]);
-
+  console.log(boards);
   useEffect(() => {
     if (!user) {
       return;
@@ -57,7 +57,11 @@ const HomePage = () => {
             <HomePageBoards boards={boards} title="Templates" />
           </PrivateRoute>
           <PrivateRoute exact path="/">
-            <HomePageBoards boards={boards} title="Personal Boards" />
+            <HomePageBoards
+              boards={boards}
+              setBoards={setBoards}
+              title="Personal Boards"
+            />
           </PrivateRoute>
         </Switch>
       </div>
