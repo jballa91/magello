@@ -14,7 +14,8 @@ const NavBar = (props) => {
     if (
       props.location.pathname === "/" ||
       props.location.pathname === "/profile" ||
-      props.location.pathname === "/external-api"
+      props.location.pathname === "/external-api" ||
+      props.location.pathname === "/board-templates"
     ) {
       setColor("#58b1cc");
     } else {
