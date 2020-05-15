@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
+import { api } from "./config";
 
 const DEFAULT_REDIRECT_CALLBACK = () => {
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -36,25 +37,24 @@ export const Auth0Provider = ({
       setIsAuthenticated(isAuthenticated);
 
       if (isAuthenticated) {
+        console.log(api);
+
         let user = await auth0FromHook.getUser();
         let token = await auth0FromHook.getTokenSilently();
         // console.log(user);
         // console.log(token);
         //update user on backend
-        const res = await fetch(
-          "https://arcane-fortress-89738.herokuapp.com/users",
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-              nickname: user.nickname,
-              email: user.email,
-            }),
-          }
-        );
+        const res = await fetch(`${api}/users`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            nickname: user.nickname,
+            email: user.email,
+          }),
+        });
         const result = await res.json();
         console.log(result);
         const id = result.user.id;

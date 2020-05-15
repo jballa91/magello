@@ -5,6 +5,7 @@ import ListBox from "./ListBox";
 import AddList from "./AddList";
 
 import styles from "../styles/BoardPage.module.css";
+import { api } from "../config";
 
 const BoardPage = (props) => {
   const { loading, user, getTokenSilently } = useAuth0();
@@ -16,15 +17,12 @@ const BoardPage = (props) => {
   useEffect(() => {
     async function getLists(id) {
       const token = await getTokenSilently();
-      const res = await fetch(
-        `https://arcane-fortress-89738.herokuapp.com/boards/${id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${api}/boards/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       let { board, lists } = await res.json();
       setLists(lists);
       setBoard(board);

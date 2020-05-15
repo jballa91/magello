@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth0 } from "../magello-spa";
+import { api } from "../config";
 
 const ExternalApi = () => {
   const [showResult, setShowResult] = useState(false);
@@ -7,17 +8,15 @@ const ExternalApi = () => {
   const { getTokenSilently } = useAuth0();
 
   const callApi = async () => {
+    console.log(api);
     try {
       const token = await getTokenSilently();
 
-      const response = await fetch(
-        "https://arcane-fortress-89738.herokuapp.com/api/external",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${api}/api/external`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const responseData = await response.json();
 

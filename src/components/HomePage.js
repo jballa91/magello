@@ -4,6 +4,7 @@ import { useAuth0 } from "../magello-spa";
 import PrivateRoute from "./PrivateRoute";
 import HomePageBoards from "./HomePageBoards";
 import styles from "../styles/HomePage.module.css";
+import { api } from "../config";
 
 const HomePage = () => {
   const { loading, user, getTokenSilently } = useAuth0();
@@ -15,15 +16,12 @@ const HomePage = () => {
     }
     async function getBoards(id) {
       const token = await getTokenSilently();
-      const res = await fetch(
-        `https://arcane-fortress-89738.herokuapp.com/users/${id}/boards`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${api}/users/${id}/boards`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const boardsArr = await res.json();
       setBoards(boardsArr.boards);
     }

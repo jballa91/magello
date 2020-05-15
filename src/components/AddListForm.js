@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../magello-spa";
 
 import styles from "../styles/AddListForm.module.css";
+import { api } from "../config";
 
 const AddListForm = (props) => {
   const { getTokenSilently } = useAuth0();
@@ -14,20 +15,17 @@ const AddListForm = (props) => {
     e.preventDefault();
     if (text.length > 0) {
       const token = await getTokenSilently();
-      const res = await fetch(
-        "https://arcane-fortress-89738.herokuapp.com/lists",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            boardId: boardId,
-            name: text,
-          }),
-        }
-      );
+      const res = await fetch(`${api}/lists`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          boardId: boardId,
+          name: text,
+        }),
+      });
 
       if (res.ok) {
         const result = await res.json();

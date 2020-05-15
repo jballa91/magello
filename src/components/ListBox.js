@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "../magello-spa";
+import { api } from "../config";
 
 import CardBox from "./CardBox";
 
@@ -14,15 +15,12 @@ const ListBox = (props) => {
   useEffect(() => {
     async function getCards(id) {
       const token = await getTokenSilently();
-      const res = await fetch(
-        `https://arcane-fortress-89738.herokuapp.com/lists/${id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${api}/lists/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       let { cards } = await res.json();
       setCards(cards);
     }
