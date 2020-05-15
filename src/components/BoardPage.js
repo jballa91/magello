@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "../magello-spa";
 
 import ListBox from "./ListBox";
+import AddList from "./AddList";
 
 import styles from "../styles/BoardPage.module.css";
 
@@ -28,18 +29,31 @@ const BoardPage = (props) => {
       setLists(lists);
       setBoard(board);
     }
-
     getLists(id);
   }, [user]);
 
+  if (loading) {
+    return (
+      <img
+        src={require("../images/magellogo.gif")}
+        alt="loading"
+        height="100px"
+        width="100px"
+      />
+    );
+  }
+
   return (
     <div
-      className={styles.boardpage_container}
+      className={styles.boardpage_page}
       style={{ backgroundColor: board.backgroundColor }}
     >
-      {lists.map((list) => {
-        return <ListBox {...list} key={list.id} />;
-      })}
+      <div className={styles.boardpage_container}>
+        {lists.map((list) => {
+          return <ListBox {...list} key={list.id} />;
+        })}
+        <AddList lists={lists} setLists={setLists} />
+      </div>
     </div>
   );
 };

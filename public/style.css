@@ -11,7 +11,8 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
-button {
+button,
+input {
   border: none;
 }
 

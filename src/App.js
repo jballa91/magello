@@ -23,15 +23,13 @@ function App() {
         </header>
         <div className={styles.page_container}>
           <Switch>
+            <PrivateRoute path="/boards/:id" component={BoardPage} />
+            <PrivateRoute path="/profile" component={Profile} />
+            <PrivateRoute path="/external-api" component={ExternalApi} />
             {!isAuthenticated && (
               <Route exact path="/" component={SplashPage} />
             )}
-            {isAuthenticated && (
-              <PrivateRoute exact path="/" component={HomePage} />
-            )}
-            <PrivateRoute path="/profile" component={Profile} />
-            <PrivateRoute path="/external-api" component={ExternalApi} />
-            <PrivateRoute path="/boards/:id" component={BoardPage} />
+            {isAuthenticated && <PrivateRoute path="/" component={HomePage} />}
           </Switch>
         </div>
       </Router>

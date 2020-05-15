@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,MAAM,EAAE,WAAW;EACnB,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,KAAK;CAAG",
+    "sources": [
+        "AddList.module.sass"
+    ],
+    "names": [],
+    "file": "AddList.module.css"
+}

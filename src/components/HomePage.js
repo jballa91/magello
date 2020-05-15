@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Switch, Link, Router } from "react-router-dom";
 import { useAuth0 } from "../magello-spa";
-
+import PrivateRoute from "./PrivateRoute";
 import HomePageBoards from "./HomePageBoards";
 import styles from "../styles/HomePage.module.css";
 
@@ -45,12 +45,23 @@ const HomePage = () => {
     <div className={styles.homepage_container}>
       <div className={styles.homepage_left}>
         <ul className={styles.homepage_nav}>
-          {/* Gotta make a list of linkies over here */}
+          <li>
+            <Link to="/">Boards</Link>
+          </li>
+          <li>
+            <Link to="/user-templates">Templates</Link>
+          </li>
         </ul>
       </div>
       <div className={styles.homepage_right}>
-        <h3 className={styles.boards_header}>Personal Boards</h3>
-        <HomePageBoards boards={boards} />
+        <Switch>
+          <PrivateRoute exact path="/">
+            <HomePageBoards boards={boards} title="Personal Boards" />
+          </PrivateRoute>
+          <PrivateRoute path="/user-templates">
+            <HomePageBoards boards={boards} title="Templates" />
+          </PrivateRoute>
+        </Switch>
       </div>
     </div>
   );

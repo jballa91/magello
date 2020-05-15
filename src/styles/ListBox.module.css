@@ -1,12 +1,19 @@
 .list_box {
-  background-color: #CCCCCC;
-  border-radius: 5px;
-  width: 300px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  width: 272px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
   margin: 10px 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .list_box:first-child {
@@ -14,6 +21,8 @@
 }
 
 .list_box_name {
-  font-size: 26px;
+  margin: 10px 0 0 20px;
+  font-size: 16px;
+  font-weight: 700;
 }
 /*# sourceMappingURL=ListBox.module.css.map */
