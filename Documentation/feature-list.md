@@ -10,6 +10,7 @@
 * Users can create cards in lists
 * Users can delete boards, lists, and cards
 * Users can freely rearrange their lists and cards with drag and drop
+  
 ## Stretch Goals
 * Multi-user collaboration
 * Theme settings
