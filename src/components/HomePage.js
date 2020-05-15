@@ -49,17 +49,17 @@ const HomePage = () => {
             <Link to="/">Boards</Link>
           </li>
           <li>
-            <Link to="/user-templates">Templates</Link>
+            <Link to="/board-templates">Templates</Link>
           </li>
         </ul>
       </div>
       <div className={styles.homepage_right}>
         <Switch>
+          <PrivateRoute path="/board-templates">
+            <HomePageBoards boards={boards} title="Templates" />
+          </PrivateRoute>
           <PrivateRoute exact path="/">
             <HomePageBoards boards={boards} title="Personal Boards" />
-          </PrivateRoute>
-          <PrivateRoute path="/user-templates">
-            <HomePageBoards boards={boards} title="Templates" />
           </PrivateRoute>
         </Switch>
       </div>
