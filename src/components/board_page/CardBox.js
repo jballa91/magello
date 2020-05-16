@@ -8,7 +8,9 @@ import styles from "../../styles/board_page/CardBox.module.css";
 const CardBox = (props) => {
   const { loading, user, getTokenSilently } = useAuth0();
   const id = props.id;
+  console.log(props);
   const [data, setData] = useState("");
+  const [modToggle, setModToggle] = useState(false);
 
   useEffect(() => {
     setData(props.data);
@@ -17,18 +19,15 @@ const CardBox = (props) => {
   if (data) {
     return (
       <>
-        {props.modToggle ? (
+        {modToggle ? (
           <CardInfo
             name={props.name}
             data={props.data}
-            modToggle={props.modToggle}
-            setModToggle={props.setModToggle}
+            modToggle={modToggle}
+            setModToggle={setModToggle}
           />
         ) : null}
-        <div
-          className={styles.card_box}
-          onClick={() => props.setModToggle(true)}
-        >
+        <div className={styles.card_box} onClick={() => setModToggle(true)}>
           <h3 className={styles.card_name}>{props.name}</h3>
           <img
             className={styles.card_details_icon}

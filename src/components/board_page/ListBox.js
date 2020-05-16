@@ -11,7 +11,6 @@ const ListBox = (props) => {
   const { loading, user, getTokenSilently } = useAuth0();
   const id = props.id;
   const [cards, setCards] = useState([]);
-  const [modToggle, setModToggle] = useState(false);
 
   useEffect(() => {
     async function getCards(id) {
@@ -33,12 +32,7 @@ const ListBox = (props) => {
       <div className={styles.list_box}>
         <h1 className={styles.list_box_name}>{`${props.name}`}</h1>
         {cards.map((card) => (
-          <CardBox
-            {...card}
-            key={card.id}
-            modToggle={modToggle}
-            setModToggle={setModToggle}
-          />
+          <CardBox {...card} key={card.id} />
         ))}
         <AddCard cards={cards} setCards={setCards} listId={id} />
       </div>

@@ -1,11 +1,11 @@
 .add_board__button {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 180px;
   border-radius: 10px;
 }
 
 .add_board__button:hover {
-  opacity: .8;
+  opacity: .9;
   cursor: pointer;
 }
 

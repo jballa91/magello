@@ -5,6 +5,8 @@ import styles from "../../styles/board_page/CardInfo.module.css";
 
 const CardInfo = (props) => {
   const { getTokenSilently } = useAuth0();
+  console.log("click");
+  console.log(props);
 
   return (
     <>

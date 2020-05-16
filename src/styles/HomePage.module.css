@@ -1,6 +1,6 @@
 .homepage_container {
   margin-top: 50px;
-  width: 60%;
+  width: 70%;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,6 +10,13 @@
 
 .homepage_left {
   width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
 }
 
 .homepage_right {
