@@ -8,7 +8,6 @@ const ExternalApi = () => {
   const { getTokenSilently } = useAuth0();
 
   const callApi = async () => {
-    console.log(api);
     try {
       const token = await getTokenSilently();
 

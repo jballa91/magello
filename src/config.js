@@ -1,4 +1,3 @@
-console.log(process.env.NODE_ENV);
 module.exports = {
   api:
     process.env.NODE_ENV === "development"

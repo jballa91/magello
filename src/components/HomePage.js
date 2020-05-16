@@ -9,7 +9,6 @@ import { api } from "../config";
 const HomePage = () => {
   const { loading, user, getTokenSilently } = useAuth0();
   const [boards, setBoards] = useState([]);
-  console.log(boards);
   useEffect(() => {
     if (!user) {
       return;

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import AddBoard from "./AddBoard";
+import AddBoard from "./add_board/AddBoard";
 
 import styles from "../styles/HomePageBoards.module.css";
 
 const HomePageBoards = (props) => {
-  console.log(props);
-  console.log(props.boards);
-
   return (
     <>
       <h3 className={styles.boards_header}>{props.title}</h3>

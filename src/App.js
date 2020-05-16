@@ -6,7 +6,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
-import BoardPage from "./components/BoardPage";
+import BoardPage from "./components/board_page/BoardPage";
 import Profile from "./components/Profile";
 import ExternalApi from "./views/ExternalApi";
 

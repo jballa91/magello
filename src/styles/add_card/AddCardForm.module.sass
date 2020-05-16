@@ -1,0 +1,52 @@
+@import "../variables"
+.add_card_form
+    display: flex
+    flex-direction: column
+    width: 262px
+    background-color: $grey1
+    box-shadow: 0, 0, 5px, 5px $grey4
+    border-radius: 4px
+
+.add_card_form__name
+    width: 252px
+    height: 32px
+    box-sizing: border-box
+    border: 2px solid $grey4
+    border-radius: 4px
+    margin: 5px auto 5px auto
+    padding: 5px
+    &:focus
+        outline: none !important
+        border: 2px solid #61BD4F
+
+.add_card_form__data
+    width: 252px
+    height: 32px
+    box-sizing: border-box
+    border: 2px solid $grey4
+    border-radius: 4px
+    margin: 0 auto 5px auto
+    padding: 5px
+    &:focus
+        outline: none !important
+        border: 2px solid #61BD4F
+.add_card_form__submit_exit
+    display: flex
+.add_card_form__button
+    height: 32px
+    width: 70px
+    border-radius: 4px
+    background-color: #5AAC44
+    color: $grey1
+    margin: 0 0 5px 5px
+    &:hover
+        background-color: #61bd4f
+        cursor: pointer
+.add_card_form__exit
+    height: 26px
+    width: 26px
+    margin: 3px 10px
+    opacity: .5
+    &:hover
+        cursor: pointer
+        opacity: .7

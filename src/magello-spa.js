@@ -36,12 +36,8 @@ export const Auth0Provider = ({
       setIsAuthenticated(isAuthenticated);
 
       if (isAuthenticated) {
-        console.log(api);
-
         let user = await auth0FromHook.getUser();
         let token = await auth0FromHook.getTokenSilently();
-        // console.log(user);
-        // console.log(token);
         //update user on backend
         const res = await fetch(`${api}/users`, {
           method: "PATCH",
@@ -55,7 +51,6 @@ export const Auth0Provider = ({
           }),
         });
         const result = await res.json();
-        console.log(result);
         const id = result.user.id;
         user = { ...user, id };
         setUser(user);

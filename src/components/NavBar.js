@@ -8,7 +8,6 @@ import styles from "../styles/NavBar.module.css";
 const NavBar = (props) => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [color, setColor] = useState();
-  console.log(props);
 
   useEffect(() => {
     if (

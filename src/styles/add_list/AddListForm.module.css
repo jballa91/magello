@@ -1,0 +1,62 @@
+.add_list_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 272px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.add_list_form__submit_exit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.add_list_form__text {
+  max-width: 262px;
+  height: 32px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #808080;
+  border-radius: 4px;
+  margin: 5px 0 5px 5px;
+  padding: 7px 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+.add_list_form__text:focus {
+  outline: none !important;
+  border: 2px solid #61BD4F;
+}
+
+.add_list_form__button {
+  height: 32px;
+  width: 70px;
+  border-radius: 4px;
+  background-color: #5AAC44;
+  color: #F5F5F5;
+  margin: 0 0 5px 5px;
+}
+
+.add_list_form__button:hover {
+  background-color: #61bd4f;
+  cursor: pointer;
+}
+
+.add_list_form__exit {
+  height: 26px;
+  width: 26px;
+  margin: 3px 10px;
+  opacity: .5;
+}
+
+.add_list_form__exit:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+/*# sourceMappingURL=AddListForm.module.css.map */

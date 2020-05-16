@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,oBAAoB,CAAC;EACjB,KAAK,EAAE,KAAK;EACZ,gBAAgB,EAAE,IAAI;EACtB,MAAM,EAAE,kBAAkB;EAC1B,UAAU,EAAE,UAAU;EACtB,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,IAAI;CAAG",
+    "sources": [
+        "AddCard.module.sass",
+        "../_variables.sass"
+    ],
+    "names": [],
+    "file": "AddCard.module.css"
+}

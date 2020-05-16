@@ -1,0 +1,79 @@
+.add_card_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 262px;
+  background-color: #F5F5F5;
+  -webkit-box-shadow: 0, 0, 5px, 5px #808080;
+          box-shadow: 0, 0, 5px, 5px #808080;
+  border-radius: 4px;
+}
+
+.add_card_form__name {
+  width: 252px;
+  height: 32px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #808080;
+  border-radius: 4px;
+  margin: 5px auto 5px auto;
+  padding: 5px;
+}
+
+.add_card_form__name:focus {
+  outline: none !important;
+  border: 2px solid #61BD4F;
+}
+
+.add_card_form__data {
+  width: 252px;
+  height: 32px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #808080;
+  border-radius: 4px;
+  margin: 0 auto 5px auto;
+  padding: 5px;
+}
+
+.add_card_form__data:focus {
+  outline: none !important;
+  border: 2px solid #61BD4F;
+}
+
+.add_card_form__submit_exit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.add_card_form__button {
+  height: 32px;
+  width: 70px;
+  border-radius: 4px;
+  background-color: #5AAC44;
+  color: #F5F5F5;
+  margin: 0 0 5px 5px;
+}
+
+.add_card_form__button:hover {
+  background-color: #61bd4f;
+  cursor: pointer;
+}
+
+.add_card_form__exit {
+  height: 26px;
+  width: 26px;
+  margin: 3px 10px;
+  opacity: .5;
+}
+
+.add_card_form__exit:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+/*# sourceMappingURL=AddCardForm.module.css.map */
