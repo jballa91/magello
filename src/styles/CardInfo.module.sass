@@ -1,0 +1,46 @@
+@import "variables"
+.card_info__wrapper
+    position: fixed
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .1)
+    z-index: 8
+
+.card_info__container
+    width: 500px
+    height: 220px
+    margin-top: -80px
+    display: flex
+    flex-direction: column
+    align-items: center
+    background-color: #CDD1DE
+    border-radius: 10px
+
+.card_info__title_exit_container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 20px 0
+    width: 460px
+    height: 50px
+    .card_info__name
+        font-size: 50px
+        font-weight: 700
+    .card_info__exit
+        height: 50px
+        width: 50px
+        &:hover
+            cursor: pointer
+
+.card_info__data_container
+    background-color: $grey2
+    width: 460px
+    height: 110px
+    box-sizing: border-box
+    padding: 10px
+    border-radius: 10px
