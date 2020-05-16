@@ -12,22 +12,31 @@ const BoardPage = (props) => {
   const boardId = props.match.params.id;
   const [lists, setLists] = useState([]);
   const [board, setBoard] = useState({});
+  const [owned, setOwned] = useState();
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     async function getLists(boardId) {
       const token = await getTokenSilently();
       const res = await fetch(`${api}/boards/${boardId}`, {
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-      let { board, lists } = await res.json();
-      setLists(lists);
-      setBoard(board);
+      if (res.status === 401) {
+        setLoaded(true);
+        setOwned(false);
+        console.log(owned);
+      } else {
+        setTimeout(() => setLoaded(true), 1);
+        setOwned(true);
+        let { board, lists } = await res.json();
+        setLists(lists);
+        setBoard(board);
+      }
     }
     getLists(boardId);
-  }, [user]);
+  }, [user, boardId]);
 
   if (loading) {
     return (
@@ -40,7 +49,28 @@ const BoardPage = (props) => {
     );
   }
 
-  if (true) {
+  if (!owned && loaded) {
+    return (
+      <div className={styles.boardpage_container}>
+        <div className={styles.nice_try_chump}>
+          <h1 className={styles.crimes_like_dimes}>
+            Yo yo yo y'all can't stand right here
+          </h1>
+          <h1 className={styles.crimes_like_dimes}>
+            An unauthorized user was the site's worst nightmare
+          </h1>
+          <h1 className={styles.crimes_like_dimes}>
+            Tryna get at other boards stay in your own lanes
+          </h1>
+          <h1 className={styles.crimes_like_dimes}>
+            This game is dangerous, y'all tactics are most strange
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
+  if (owned && loaded) {
     return (
       <div
         className={styles.boardpage_page}
@@ -55,6 +85,8 @@ const BoardPage = (props) => {
       </div>
     );
   }
+
+  return null;
 };
 
 export default BoardPage;
