@@ -43,7 +43,7 @@ const AddListForm = (props) => {
         type="text"
         className={styles.add_list_form__text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="List Name"
+        placeholder="Name that list homie..."
         autoFocus
       ></input>
       <div className={styles.add_list_form__submit_exit}>
