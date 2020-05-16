@@ -8,16 +8,15 @@ import styles from "../styles/BoardPage.module.css";
 import { api } from "../config";
 
 const BoardPage = (props) => {
-  const { loading, user, getTokenSilently } = useAuth0();
-  const id = props.match.params.id;
-
+  const { loading, user, getTokenSilently, isAuthenticated } = useAuth0();
+  const boardId = props.match.params.id;
   const [lists, setLists] = useState([]);
   const [board, setBoard] = useState({});
 
   useEffect(() => {
-    async function getLists(id) {
+    async function getLists(boardId) {
       const token = await getTokenSilently();
-      const res = await fetch(`${api}/boards/${id}`, {
+      const res = await fetch(`${api}/boards/${boardId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -27,7 +26,7 @@ const BoardPage = (props) => {
       setLists(lists);
       setBoard(board);
     }
-    getLists(id);
+    getLists(boardId);
   }, [user]);
 
   if (loading) {
@@ -41,19 +40,21 @@ const BoardPage = (props) => {
     );
   }
 
-  return (
-    <div
-      className={styles.boardpage_page}
-      style={{ backgroundColor: board.backgroundColor }}
-    >
-      <div className={styles.boardpage_container}>
-        {lists.map((list) => {
-          return <ListBox {...list} key={list.id} />;
-        })}
-        <AddList lists={lists} setLists={setLists} />
+  if (true) {
+    return (
+      <div
+        className={styles.boardpage_page}
+        style={{ backgroundColor: board.backgroundColor }}
+      >
+        <div className={styles.boardpage_container}>
+          {lists.map((list) => {
+            return <ListBox {...list} key={list.id} />;
+          })}
+          <AddList lists={lists} setLists={setLists} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default BoardPage;
