@@ -1,0 +1,62 @@
+.board_card__relative {
+  position: relative;
+}
+
+.board_box_button__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100px;
+  width: 180px;
+}
+
+.board_box_button__container:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.board_card__name {
+  margin: 10px 20px 0px 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.board_card__delete_button_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.board_card__delete_button {
+  z-index: 10;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+  height: 20px;
+  width: 50px;
+  margin: 0 10px 10px 0;
+  bottom: 0;
+  right: 0;
+}
+
+.board_card__delete_button:hover {
+  cursor: pointer;
+  background-color: #A9A9A9;
+}
+/*# sourceMappingURL=BoardBoxButton.module.css.map */

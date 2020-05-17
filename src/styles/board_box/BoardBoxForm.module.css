@@ -1,0 +1,58 @@
+.board_box_form {
+  width: 180px;
+  height: 100px;
+}
+
+.board_box_form__text_container {
+  height: 57px;
+  margin-top: 10px;
+}
+
+.board_box_form__text {
+  margin: 0 20px 0px 20px;
+  font-size: 16px;
+  color: white;
+}
+
+.board_box_form__submit_exit_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 33px;
+  margin: 0px 0px 0px 20px;
+}
+
+.board_box_form__submit {
+  z-index: 10;
+  background-color: #8C1C13;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  height: 20px;
+  width: 50px;
+  opacity: .95;
+}
+
+.board_box_form__submit:hover {
+  cursor: pointer;
+  background-color: #BF4342;
+  opacity: 1;
+}
+
+.board_box_form__exit {
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  opacity: .95;
+}
+
+.board_box_form__exit:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+/*# sourceMappingURL=BoardBoxForm.module.css.map */

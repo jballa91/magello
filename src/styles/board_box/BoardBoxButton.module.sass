@@ -1,0 +1,35 @@
+@import "../_variables"
+.board_card__relative
+    position: relative
+.board_box_button__container
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 100px
+    width: 180px
+    &:hover
+        opacity: .8
+        cursor: pointer
+.board_card__name
+    margin: 10px 20px 0px 20px
+    color: white
+    font-size: 18px
+    font-weight: 400
+.board_card__delete_button_container
+    display: flex
+    height: 50px
+    width: 100%
+    justify-content: flex-end
+    align-items: flex-end
+.board_card__delete_button
+    z-index: 10
+    box-sizing: border-box
+    border-radius: 4px
+    height: 20px
+    width: 50px
+    margin: 0 10px 10px 0
+    bottom: 0
+    right: 0
+    &:hover
+        cursor: pointer
+        background-color: $grey3

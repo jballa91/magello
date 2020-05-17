@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+import BoardBox from "./board_box/BoardBox";
 import AddBoard from "./add_board/AddBoard";
 
 import styles from "../styles/HomePageBoards.module.css";
@@ -11,14 +13,12 @@ const HomePageBoards = (props) => {
       <div className={styles.board_card_container}>
         {props.boards.map((board) => {
           return (
-            <Link to={`/boards/${board.id}`} key={board.id}>
-              <div
-                className={styles.board_card}
-                style={{ backgroundColor: board.backgroundColor }}
-              >
-                <h4 className={styles.board_card__name}>{`${board.name}`}</h4>
-              </div>
-            </Link>
+            <BoardBox
+              key={board.id}
+              board={board}
+              boards={props.boards}
+              setBoards={props.setBoards}
+            />
           );
         })}
         <AddBoard boards={props.boards} setBoards={props.setBoards} />

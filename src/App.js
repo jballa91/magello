@@ -14,7 +14,7 @@ import styles from "./styles/App.module.css";
 
 import { useAuth0 } from "./magello-spa";
 function App() {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <div className="App">
       <Router history={history}>
