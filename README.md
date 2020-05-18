@@ -1,5 +1,5 @@
 # magello
-An organizational app for exceptional explorers.
+An organizational app for exceptional explorers.<br />
 https://magello.herokuapp.com
 ## Available Scripts
 
