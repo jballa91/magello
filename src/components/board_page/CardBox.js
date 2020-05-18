@@ -51,9 +51,18 @@ const CardBox = (props) => {
   }
 
   return (
-    <div className={styles.card_box}>
-      <h3 className={styles.card_name}>{props.name}</h3>
-    </div>
+    <Draggable draggableId={`${id}`} index={props.index}>
+      {(provided) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          className={styles.card_box}
+        >
+          <h3 className={styles.card_name}>{props.name}</h3>
+        </div>
+      )}
+    </Draggable>
   );
 };
 
