@@ -4,7 +4,6 @@ import { useAuth0 } from "../../magello-spa";
 
 import styles from "../../styles/add_card/AddCardForm.module.css";
 import { api } from "../../config";
-import AddCard from "./AddCard";
 
 const AddCardForm = (props) => {
   const { getTokenSilently } = useAuth0();

@@ -9,7 +9,6 @@ const BoardBoxButton = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("click");
     openClose(true);
   };
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useAuth0 } from "../magello-spa";
 import styles from "../styles/SplashPage.module.css";
 

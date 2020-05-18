@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
 
@@ -9,7 +9,6 @@ const ListDeleteForm = (props) => {
   const { getTokenSilently } = useAuth0();
   const listId = props.id;
   const openClose = props.handler;
-  console.log(props.lists);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

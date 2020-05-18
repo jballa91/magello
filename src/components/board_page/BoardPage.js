@@ -9,7 +9,7 @@ import styles from "../../styles/board_page/BoardPage.module.css";
 import { api } from "../../config";
 
 const BoardPage = (props) => {
-  const { loading, user, getTokenSilently, isAuthenticated } = useAuth0();
+  const { loading, getTokenSilently } = useAuth0();
   const boardId = props.match.params.id;
   const [lists, setLists] = useState([]);
   const [board, setBoard] = useState({});
@@ -36,7 +36,7 @@ const BoardPage = (props) => {
       }
     }
     getLists(boardId);
-  }, [user, boardId]);
+  }, [boardId, getTokenSilently]);
 
   const onDragEnd = (result) => {
     //

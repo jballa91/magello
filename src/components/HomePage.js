@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Link, Router } from "react-router-dom";
+import { Switch, Link } from "react-router-dom";
 import { useAuth0 } from "../magello-spa";
 import PrivateRoute from "./PrivateRoute";
 import HomePageBoards from "./HomePageBoards";
@@ -26,7 +26,7 @@ const HomePage = () => {
     }
 
     getBoards(user.id);
-  }, [user]);
+  }, [user, getTokenSilently]);
 
   if (loading) {
     return (

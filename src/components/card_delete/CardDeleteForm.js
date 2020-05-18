@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
 
@@ -9,7 +9,6 @@ const CardDeleteForm = (props) => {
   const { getTokenSilently } = useAuth0();
   const cardId = props.id;
   const openClose = props.handler;
-  console.log(props);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +26,6 @@ const CardDeleteForm = (props) => {
     });
     if (res.ok) {
       const newCards = [...props.cards].filter((el) => el.id !== cardId);
-      console.log(newCards);
       props.setCards(newCards);
     } else {
       alert("Yo you can't delete that card, but good job getting here");

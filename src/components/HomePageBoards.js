@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 import BoardBox from "./board_box/BoardBox";
 import AddBoard from "./add_board/AddBoard";

@@ -10,11 +10,10 @@ import ListDeleteForm from "../list_delete/ListDeleteForm";
 import styles from "../../styles/board_page/ListBox.module.css";
 
 const ListBox = (props) => {
-  const { getTokenSilently, user } = useAuth0();
+  const { getTokenSilently } = useAuth0();
   const id = props.id;
   const [cards, setCards] = useState([]);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  console.log(props.lists);
 
   useEffect(() => {
     async function getCards(id) {
@@ -29,13 +28,12 @@ const ListBox = (props) => {
       setCards(cards);
     }
     getCards(id);
-  }, []);
+  }, [getTokenSilently, id]);
 
   const handleClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     setDeleteOpen(!deleteOpen);
-    console.log("click");
   };
 
   return (

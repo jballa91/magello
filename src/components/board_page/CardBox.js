@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { useAuth0 } from "../../magello-spa";
 
 import CardInfo from "./CardInfo";
 
@@ -8,16 +7,14 @@ import styles from "../../styles/board_page/CardBox.module.css";
 import CardDeleteForm from "../card_delete/CardDeleteForm";
 
 const CardBox = (props) => {
-  const { getTokenSilently } = useAuth0();
   const id = props.id;
   const [data, setData] = useState("");
   const [modToggle, setModToggle] = useState(false);
   const [open, setOpen] = useState(false);
-  // console.log(id);
 
   useEffect(() => {
     setData(props.data);
-  }, []);
+  }, [props.data]);
 
   const handleClick = async (e) => {
     e.stopPropagation();

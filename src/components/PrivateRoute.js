@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from "react";
+import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "../magello-spa";
 

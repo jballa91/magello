@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { useAuth0 } from "../../magello-spa";
 
 import AddListButton from "./AddListButton";
 import AddListForm from "./AddListForm";

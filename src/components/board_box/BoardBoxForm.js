@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
 
@@ -6,9 +6,8 @@ import styles from "../../styles/board_box/BoardBoxForm.module.css";
 import { api } from "../../config";
 
 const BoardBoxForm = (props) => {
-  const { user, getTokenSilently } = useAuth0();
+  const { getTokenSilently } = useAuth0();
   const boardId = props.board.id;
-  console.log(props);
   const openClose = props.handler;
 
   const handleSubmit = async (e) => {
