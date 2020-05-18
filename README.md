@@ -1,6 +1,6 @@
 # magello
 An organizational app for exceptional explorers.
-
+https://magello.herokuapp.com
 ## Available Scripts
 
 In the project directory, you can run:
