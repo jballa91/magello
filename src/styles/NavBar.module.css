@@ -52,7 +52,7 @@
 }
 
 .navlink:hover {
-  color: #804e1d;
+  color: #808080;
 }
 
 .navlink:not(:last-child) {
@@ -72,6 +72,6 @@
 
 .logBtn:hover {
   cursor: pointer;
-  background-color: #cc9258;
+  background-color: #808080;
 }
 /*# sourceMappingURL=NavBar.module.css.map */

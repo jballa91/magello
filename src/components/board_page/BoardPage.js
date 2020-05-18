@@ -63,7 +63,12 @@ const BoardPage = (props) => {
           {lists.map((list) => {
             return (
               <DragDropContext onDragEnd={onDragEnd} key={list.id}>
-                <ListBox {...list} key={list.id} />
+                <ListBox
+                  {...list}
+                  key={list.id}
+                  lists={lists}
+                  setLists={setLists}
+                />
               </DragDropContext>
             );
           })}

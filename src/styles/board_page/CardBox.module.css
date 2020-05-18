@@ -20,9 +20,69 @@
   margin: 5px 10px 5px 10px;
 }
 
-.card_details_icon {
+.card_box_2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 50px;
+  background-color: #F5F5F5;
+  width: 252px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0px 10px 10px 10px;
+  -webkit-box-shadow: 0 1px 1px 0 #A9A9A9;
+          box-shadow: 0 1px 1px 0 #A9A9A9;
+}
+
+.card_box_2:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.card_box_2 .card_name {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px 10px 5px 10px;
+}
+
+.card__details_delete {
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0 10px 15px;
+}
+
+.card__details_delete .card_details_icon {
   height: 14px;
   width: 14px;
-  margin: 0 10px 5px 10px;
+}
+
+.card__delete_button {
+  color: #8C1C13;
+  max-height: 24px;
+  background-color: #e0e0e0;
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.card__delete_button:hover {
+  background-color: #A9A9A9;
+  color: #bf4342;
+  cursor: pointer;
 }
 /*# sourceMappingURL=CardBox.module.css.map */

@@ -35,4 +35,28 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.list_box__name_delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list_box__delete_button {
+  color: #e0e0e0;
+  max-height: 24px;
+  background-color: #8C1C13;
+  margin: auto 10px;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.list_box__delete_button:hover {
+  background-color: #bf4342;
+  color: white;
+  cursor: pointer;
+}
 /*# sourceMappingURL=ListBox.module.css.map */

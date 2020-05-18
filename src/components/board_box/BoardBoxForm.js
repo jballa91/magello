@@ -25,8 +25,7 @@ const BoardBoxForm = (props) => {
       }),
     });
     if (res.ok) {
-      const newBoards = [...props.boards];
-      newBoards.pop();
+      const newBoards = [...props.boards].filter((el) => el.id !== boardId);
       props.setBoards(newBoards);
     } else {
       alert("Yo you can't delete that board, but good job getting here");

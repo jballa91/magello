@@ -5,6 +5,7 @@ import { api } from "../../config";
 
 import CardBox from "./CardBox";
 import AddCard from "../add_card/AddCard";
+import ListDeleteForm from "../list_delete/ListDeleteForm";
 
 import styles from "../../styles/board_page/ListBox.module.css";
 
@@ -12,6 +13,8 @@ const ListBox = (props) => {
   const { getTokenSilently, user } = useAuth0();
   const id = props.id;
   const [cards, setCards] = useState([]);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  console.log(props.lists);
 
   useEffect(() => {
     async function getCards(id) {
@@ -28,27 +31,59 @@ const ListBox = (props) => {
     getCards(id);
   }, []);
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDeleteOpen(!deleteOpen);
+    console.log("click");
+  };
+
   return (
     <>
-      <div className={styles.list_box}>
-        <h1 className={styles.list_box_name}>{`${props.name}`}</h1>
-        <Droppable droppableId={`${id}`}>
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className={styles.container}
+      {deleteOpen ? (
+        <ListDeleteForm
+          handler={handleClick}
+          deleteOpen={deleteOpen}
+          setDeleteOpen={setDeleteOpen}
+          id={id}
+          lists={props.lists}
+          setLists={props.setLists}
+        />
+      ) : (
+        <div className={styles.list_box}>
+          <div className={styles.list_box__name_delete}>
+            <h1 className={styles.list_box_name}>{`${props.name}`}</h1>
+            <button
+              onClick={(e) => handleClick(e)}
+              className={styles.list_box__delete_button}
             >
-              {cards.map((card, i) => (
-                <CardBox {...card} key={card.id} index={i} />
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+              Delete
+            </button>
+          </div>
+          <Droppable droppableId={`${id}`}>
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                className={styles.container}
+              >
+                {cards.map((card, i) => (
+                  <CardBox
+                    {...card}
+                    key={card.id}
+                    index={i}
+                    setCards={setCards}
+                    cards={cards}
+                  />
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
 
-        <AddCard cards={cards} setCards={setCards} listId={id} />
-      </div>
+          <AddCard cards={cards} setCards={setCards} listId={id} />
+        </div>
+      )}
     </>
   );
 };

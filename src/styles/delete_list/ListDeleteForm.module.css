@@ -1,0 +1,71 @@
+.delete_list__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #e0e0e0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 272px;
+  height: 88px;
+  margin: 10px 10px 10px 0;
+  border-radius: 4px;
+}
+
+.delete_list__form:first-child {
+  margin-left: 10px;
+}
+
+.delete_list__text_container {
+  width: 200px;
+  margin: 10px auto 0px auto;
+}
+
+.delete_list__text_container .delete_list__text {
+  font-size: 16px;
+}
+
+.delete_list__submit_exit_container {
+  width: 150px;
+  margin-top: 5px;
+  justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.delete_list__submit {
+  height: 20px;
+  width: 70px;
+  background-color: #8c1c13;
+  color: white;
+  border-radius: 4px;
+}
+
+.delete_list__submit:hover {
+  background-color: #BF4342;
+  cursor: pointer;
+}
+
+.delete_list__exit {
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
+  opacity: .5;
+}
+
+.delete_list__exit:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+/*# sourceMappingURL=ListDeleteForm.module.css.map */

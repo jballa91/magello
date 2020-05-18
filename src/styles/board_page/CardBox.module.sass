@@ -13,7 +13,46 @@
         font-size: 16px
         font-weight: 400
         margin: 5px 10px 5px 10px
-.card_details_icon
-    height: 14px
-    width: 14px
-    margin: 0 10px 5px 10px
+.card_box_2
+    display: flex
+    align-items: center
+    justify-content: space-between
+    min-height: 50px
+    background-color: $grey1
+    width: 252px
+    box-sizing: border-box
+    border-radius: 4px
+    margin: 0px 10px 10px 10px
+    box-shadow: 0 1px 1px 0 $grey3
+    &:hover
+        cursor: pointer
+        background-color: $cardhover
+    .card_name
+        font-size: 16px
+        font-weight: 400
+        margin: 5px 10px 5px 10px
+.card__details_delete
+    height: 15px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 10px 0 10px 15px
+    .card_details_icon
+        height: 14px
+        width: 14px
+    // .card__delete_button
+    //     margin-bottom: 0
+    //     margin-right: 10px
+    //     height: 16px
+    //     width: 16px
+.card__delete_button
+    color: #8C1C13
+    max-height: 24px
+    background-color: $grey2
+    margin-right: 10px
+    font-size: 12px
+    padding: 5px 10px
+    &:hover
+        background-color: $grey3
+        color: #bf4342
+        cursor: pointer
