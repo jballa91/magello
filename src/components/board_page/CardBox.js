@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Draggable } from "react-beautiful-dnd";
 import { useAuth0 } from "../../magello-spa";
 
 import CardInfo from "./CardInfo";
@@ -6,11 +7,11 @@ import CardInfo from "./CardInfo";
 import styles from "../../styles/board_page/CardBox.module.css";
 
 const CardBox = (props) => {
-  const { loading, user, getTokenSilently } = useAuth0();
+  const { getTokenSilently } = useAuth0();
   const id = props.id;
-  console.log(props);
   const [data, setData] = useState("");
   const [modToggle, setModToggle] = useState(false);
+  // console.log(id);
 
   useEffect(() => {
     setData(props.data);
@@ -27,14 +28,24 @@ const CardBox = (props) => {
             setModToggle={setModToggle}
           />
         ) : null}
-        <div className={styles.card_box} onClick={() => setModToggle(true)}>
-          <h3 className={styles.card_name}>{props.name}</h3>
-          <img
-            className={styles.card_details_icon}
-            alt="Card details"
-            src={require("../../images/details.png")}
-          />
-        </div>
+        <Draggable draggableId={`${id}`} index={props.index}>
+          {(provided) => (
+            <div
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              className={styles.card_box}
+              onClick={() => setModToggle(true)}
+            >
+              <h3 className={styles.card_name}>{props.name}</h3>
+              <img
+                className={styles.card_details_icon}
+                alt="Card details"
+                src={require("../../images/details.png")}
+              />
+            </div>
+          )}
+        </Draggable>
       </>
     );
   }

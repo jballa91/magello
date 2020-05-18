@@ -1,16 +1,12 @@
 .card_box {
   background-color: #F5F5F5;
-  width: 262px;
+  width: 252px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 4px;
-  margin: 0px auto 10px auto;
+  margin: 0px 10px 10px 10px;
   -webkit-box-shadow: 0 1px 1px 0 #A9A9A9;
           box-shadow: 0 1px 1px 0 #A9A9A9;
-}
-
-.card_box:last-child {
-  margin-bottom: 10px;
 }
 
 .card_box:hover {
@@ -18,7 +14,7 @@
   background-color: #f0f0f0;
 }
 
-.card_name {
+.card_box .card_name {
   font-size: 16px;
   font-weight: 400;
   margin: 5px 10px 5px 10px;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Droppable } from "react-beautiful-dnd";
 import { useAuth0 } from "../../magello-spa";
 import { api } from "../../config";
 
@@ -8,7 +9,7 @@ import AddCard from "../add_card/AddCard";
 import styles from "../../styles/board_page/ListBox.module.css";
 
 const ListBox = (props) => {
-  const { loading, user, getTokenSilently } = useAuth0();
+  const { getTokenSilently, user } = useAuth0();
   const id = props.id;
   const [cards, setCards] = useState([]);
 
@@ -31,9 +32,21 @@ const ListBox = (props) => {
     <>
       <div className={styles.list_box}>
         <h1 className={styles.list_box_name}>{`${props.name}`}</h1>
-        {cards.map((card) => (
-          <CardBox {...card} key={card.id} />
-        ))}
+        <Droppable droppableId={`${id}`}>
+          {(provided) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className={styles.container}
+            >
+              {cards.map((card, i) => (
+                <CardBox {...card} key={card.id} index={i} />
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+
         <AddCard cards={cards} setCards={setCards} listId={id} />
       </div>
     </>

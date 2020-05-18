@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 import { useAuth0 } from "../../magello-spa";
 
 import ListBox from "./ListBox";
@@ -37,6 +38,10 @@ const BoardPage = (props) => {
     getLists(boardId);
   }, [user, boardId]);
 
+  const onDragEnd = (result) => {
+    //
+  };
+
   if (loading) {
     return (
       <img
@@ -45,6 +50,26 @@ const BoardPage = (props) => {
         height="100px"
         width="100px"
       />
+    );
+  }
+
+  if (owned && loaded) {
+    return (
+      <div
+        className={styles.boardpage_page}
+        style={{ backgroundColor: board.backgroundColor }}
+      >
+        <div className={styles.boardpage_container}>
+          {lists.map((list) => {
+            return (
+              <DragDropContext onDragEnd={onDragEnd} key={list.id}>
+                <ListBox {...list} key={list.id} />
+              </DragDropContext>
+            );
+          })}
+          <AddList lists={lists} setLists={setLists} />
+        </div>
+      </div>
     );
   }
 
@@ -64,22 +89,6 @@ const BoardPage = (props) => {
           <h1 className={styles.crimes_like_dimes}>
             This game is not only dangerous, y'all tactics most strange
           </h1>
-        </div>
-      </div>
-    );
-  }
-
-  if (owned && loaded) {
-    return (
-      <div
-        className={styles.boardpage_page}
-        style={{ backgroundColor: board.backgroundColor }}
-      >
-        <div className={styles.boardpage_container}>
-          {lists.map((list) => {
-            return <ListBox {...list} key={list.id} />;
-          })}
-          <AddList lists={lists} setLists={setLists} />
         </div>
       </div>
     );
