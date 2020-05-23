@@ -16,7 +16,7 @@ const ListBox = (props) => {
   const index = props.list.index;
   const [cards, setCards] = useState([]);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const { lists, setLists } = useContext(AppContext);
+  const { lists } = useContext(AppContext);
   const list = lists[index];
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 .list_box {
   background-color: #e0e0e0;
   border-radius: 4px;
-  width: 272px;
+  min-width: 272px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
