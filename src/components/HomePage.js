@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Switch, Link } from "react-router-dom";
 import { useAuth0 } from "../magello-spa";
 import PrivateRoute from "./PrivateRoute";
 import HomePageBoards from "./HomePageBoards";
+import AppContext from "./AppContext";
 import styles from "../styles/HomePage.module.css";
 import { api } from "../config";
 
 const HomePage = () => {
   const { loading, user, getTokenSilently } = useAuth0();
-  const [boards, setBoards] = useState([]);
+  const { boards, setBoards } = useContext(AppContext);
   useEffect(() => {
     if (!user) {
       return;

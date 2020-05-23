@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useAuth0 } from "../../magello-spa";
 
@@ -7,12 +7,15 @@ import AddList from "../add_list/AddList";
 
 import styles from "../../styles/board_page/BoardPage.module.css";
 import { api } from "../../config";
+import AppContext from "../AppContext";
 
 const BoardPage = (props) => {
   const { loading, getTokenSilently } = useAuth0();
   const boardId = props.match.params.id;
-  const [lists, setLists] = useState([]);
+  // const [lists, setLists] = useState([]);
   const [board, setBoard] = useState({});
+  const context = useContext(AppContext);
+  const { lists, setLists } = useContext(AppContext);
   const [owned, setOwned] = useState();
   const [loaded, setLoaded] = useState(false);
 
@@ -38,8 +41,56 @@ const BoardPage = (props) => {
     getLists(boardId);
   }, [boardId, getTokenSilently]);
 
-  const onDragEnd = (result) => {
-    //
+  const onDragEnd = async (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+    const list = lists[source.droppableId];
+    const cardList = Array.from(list.Cards);
+    cardList.splice(source.index, 1);
+    cardList.splice(destination.index, 0, list.Cards[source.index]);
+
+    const newList = {
+      ...list,
+      Cards: cardList,
+    };
+    const token = await getTokenSilently();
+    const crizzards = newList.Cards;
+
+    crizzards.map(async (card, i) => {
+      card.index = i;
+      const res = await fetch(`${api}/cards/${card.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          id: card.id,
+          index: card.index,
+        }),
+      });
+      const result = await res.json();
+      return card;
+    });
+
+    const newLists = lists.map((list) => {
+      if (list.id === newList.id) {
+        return newList;
+      } else {
+        return list;
+      }
+    });
+    setLists(newLists);
   };
 
   if (loading) {
@@ -64,10 +115,12 @@ const BoardPage = (props) => {
             return (
               <DragDropContext onDragEnd={onDragEnd} key={list.id}>
                 <ListBox
-                  {...list}
+                  list={list}
                   key={list.id}
+                  index={list.index}
                   lists={lists}
                   setLists={setLists}
+                  boardBG={board.backgroundColor}
                 />
               </DragDropContext>
             );

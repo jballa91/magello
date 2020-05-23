@@ -3,7 +3,7 @@
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 10px;
-  width: 272px;
+  min-width: 272px;
 }
 
 .add_list__container:first-child {

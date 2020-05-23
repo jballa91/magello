@@ -1,5 +1,5 @@
 .add_list_button {
-  width: 100%;
+  min-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

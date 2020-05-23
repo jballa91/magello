@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { useAuth0 } from "../../magello-spa";
 import { api } from "../../config";
@@ -8,12 +8,16 @@ import AddCard from "../add_card/AddCard";
 import ListDeleteForm from "../list_delete/ListDeleteForm";
 
 import styles from "../../styles/board_page/ListBox.module.css";
+import AppContext from "../AppContext";
 
 const ListBox = (props) => {
   const { getTokenSilently } = useAuth0();
-  const id = props.id;
+  const id = props.list.id;
+  const index = props.list.index;
   const [cards, setCards] = useState([]);
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const { lists, setLists } = useContext(AppContext);
+  const list = lists[index];
 
   useEffect(() => {
     async function getCards(id) {
@@ -48,39 +52,50 @@ const ListBox = (props) => {
           setLists={props.setLists}
         />
       ) : (
-        <div className={styles.list_box}>
-          <div className={styles.list_box__name_delete}>
-            <h1 className={styles.list_box_name}>{`${props.name}`}</h1>
-            <button
-              onClick={(e) => handleClick(e)}
-              className={styles.list_box__delete_button}
-            >
-              Delete
-            </button>
-          </div>
-          <Droppable droppableId={`${id}`}>
-            {(provided) => (
-              <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-                className={styles.container}
-              >
-                {cards.map((card, i) => (
-                  <CardBox
-                    {...card}
-                    key={card.id}
-                    index={i}
-                    setCards={setCards}
-                    cards={cards}
-                  />
-                ))}
-                {provided.placeholder}
+        <AppContext.Consumer>
+          {() => (
+            <div className={styles.list_box}>
+              <div className={styles.list_box__name_delete}>
+                <h1 className={styles.list_box_name}>{`${props.list.name}`}</h1>
+                <button
+                  onClick={(e) => handleClick(e)}
+                  className={styles.list_box__delete_button}
+                >
+                  Delete
+                </button>
               </div>
-            )}
-          </Droppable>
+              <Droppable droppableId={`${props.index}`}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    isdraggingover={snapshot.isDraggingOver.toString()}
+                    className={styles.container}
+                  >
+                    {list.Cards.map((card, i) => (
+                      <CardBox
+                        {...card}
+                        key={card.id}
+                        index={i}
+                        setCards={setCards}
+                        cards={cards}
+                        listIndex={index}
+                      />
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
 
-          <AddCard cards={cards} setCards={setCards} listId={id} />
-        </div>
+              <AddCard
+                cards={cards}
+                setCards={setCards}
+                listId={id}
+                listIndex={index}
+              />
+            </div>
+          )}
+        </AppContext.Consumer>
       )}
     </>
   );

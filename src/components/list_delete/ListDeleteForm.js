@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
+import AppContext from "../AppContext";
 
 import styles from "../../styles/delete_list/ListDeleteForm.module.css";
 import { api } from "../../config";
@@ -9,6 +10,7 @@ const ListDeleteForm = (props) => {
   const { getTokenSilently } = useAuth0();
   const listId = props.id;
   const openClose = props.handler;
+  const { lists, setLists } = useContext(AppContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +26,14 @@ const ListDeleteForm = (props) => {
         id: listId,
       }),
     });
-    if (res.ok) {
-      const newLists = [...props.lists].filter((el) => el.id !== listId);
+    const newLists = lists.filter((el) => el.id !== listId);
+    const newNewLists = newLists.map((list, i) => {
+      list.index = i;
+      return list;
+    });
 
-      props.setLists(newLists);
-    }
+    await setLists(newNewLists);
+    console.log(lists);
   };
 
   return (

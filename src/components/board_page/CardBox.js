@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Draggable } from "react-beautiful-dnd";
-
+import styled from "styled-components";
 import CardInfo from "./CardInfo";
 
 import styles from "../../styles/board_page/CardBox.module.css";
@@ -11,7 +11,6 @@ const CardBox = (props) => {
   const [data, setData] = useState("");
   const [modToggle, setModToggle] = useState(false);
   const [open, setOpen] = useState(false);
-
   useEffect(() => {
     setData(props.data);
   }, [props.data]);
@@ -21,6 +20,11 @@ const CardBox = (props) => {
     e.preventDefault();
     setOpen(true);
   };
+
+  const Container = styled.div`
+    background-color: ${(props) => (props.isDragging ? "#A9A9A9" : "#F5F5F5")};
+    opacity: ${(props) => (props.isDragging ? 0.7 : 1)};
+  `;
 
   if (data) {
     return (
@@ -37,21 +41,24 @@ const CardBox = (props) => {
           <CardDeleteForm handler={setOpen} open={open} {...props} />
         ) : (
           <Draggable draggableId={`${id}`} index={props.index}>
-            {(provided) => (
-              <div
+            {(provided, snapshot) => (
+              <Container
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
                 ref={provided.innerRef}
+                isDragging={snapshot.isDragging}
                 className={styles.card_box}
                 onClick={() => setModToggle(true)}
               >
                 <h3 className={styles.card_name}>{props.name}</h3>
                 <div className={styles.card__details_delete}>
-                  <img
+                  <i className="fas fa-list"></i>
+
+                  {/* <img
                     className={styles.card_details_icon}
                     alt="Card details"
                     src={require("../../images/details.png")}
-                  />
+                  /> */}
                   <button
                     onClick={(e) => handleClick(e)}
                     className={styles.card__delete_button}
@@ -65,7 +72,7 @@ const CardBox = (props) => {
                     alt="delete card"
                   ></img> */}
                 </div>
-              </div>
+              </Container>
             )}
           </Draggable>
         )}

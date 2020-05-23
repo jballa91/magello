@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
 
 import styles from "../../styles/add_card/AddCardForm.module.css";
 import { api } from "../../config";
 
+import AppContext from "../AppContext";
+
 const AddCardForm = (props) => {
   const { getTokenSilently } = useAuth0();
   const listId = props.listId;
+  const listIndex = props.listIndex;
   const openClose = props.handler;
   const [name, setName] = useState("");
   const [data, setData] = useState("");
+  const { lists, setLists } = useContext(AppContext);
+  console.log(listIndex);
+  console.log(props.cards);
+  const list = lists[listIndex];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,11 +32,16 @@ const AddCardForm = (props) => {
         listId: listId,
         name: name,
         data: data,
+        index: props.cards.length,
       }),
     });
     if (res.ok) {
       const result = await res.json();
       props.setCards([...props.cards, result.card]);
+      const newLists = lists;
+      newLists[listIndex].Cards = [...props.cards, result.card];
+      console.log(newLists);
+      setLists([...newLists]);
       openClose();
     } else {
       alert("You gotta name that card, homie");

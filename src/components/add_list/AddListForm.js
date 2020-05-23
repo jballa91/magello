@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "../../magello-spa";
 
 import styles from "../../styles/add_list/AddListForm.module.css";
 import { api } from "../../config";
 
+import AppContext from "../AppContext";
+
 const AddListForm = (props) => {
   const { getTokenSilently } = useAuth0();
   const boardId = props.match.params.id;
   const openClose = props.handler;
   const [text, setText] = useState("");
+  const { lists, setLists } = useContext(AppContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newListIndex = lists.length;
     if (text.length > 0) {
       const token = await getTokenSilently();
       const res = await fetch(`${api}/lists`, {
@@ -24,12 +28,17 @@ const AddListForm = (props) => {
         body: JSON.stringify({
           boardId: boardId,
           name: text,
+          index: newListIndex,
         }),
       });
 
       if (res.ok) {
         const result = await res.json();
-        props.setLists([...props.lists, result.list]);
+        const newList = result.list;
+        newList.Cards = [];
+
+        setLists([...lists, newList]);
+
         openClose();
       }
     } else {

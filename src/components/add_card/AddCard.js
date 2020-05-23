@@ -17,6 +17,7 @@ const AddCard = (props) => {
           cards={props.cards}
           setCards={props.setCards}
           listId={props.listId}
+          listIndex={props.listIndex}
         />
       ) : (
         <AddCardButton handler={setOpen} />
