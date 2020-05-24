@@ -41,12 +41,12 @@ const CardBox = (props) => {
           <CardDeleteForm handler={setOpen} open={open} {...props} />
         ) : (
           <Draggable draggableId={`${id}`} index={props.index}>
-            {(provided, snapshot) => (
+            {(provided) => (
               <Container
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
                 ref={provided.innerRef}
-                isDragging={snapshot.isDragging}
+                // isDragging={snapshot.isDragging}
                 className={styles.card_box}
               >
                 <h3 className={styles.card_name}>{props.name}</h3>
@@ -55,7 +55,7 @@ const CardBox = (props) => {
                     className={styles.extend}
                     onClick={() => setModToggle(true)}
                   >
-                    <i class="fas fa-list"></i>
+                    <i className="fas fa-list"></i>
                   </div>
 
                   {/* <img
