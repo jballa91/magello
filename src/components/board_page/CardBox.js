@@ -48,11 +48,15 @@ const CardBox = (props) => {
                 ref={provided.innerRef}
                 isDragging={snapshot.isDragging}
                 className={styles.card_box}
-                onClick={() => setModToggle(true)}
               >
                 <h3 className={styles.card_name}>{props.name}</h3>
                 <div className={styles.card__details_delete}>
-                  <i className="fas fa-list"></i>
+                  <div
+                    className={styles.extend}
+                    onClick={() => setModToggle(true)}
+                  >
+                    <i className="fas fa-list"></i>
+                  </div>
 
                   {/* <img
                     className={styles.card_details_icon}

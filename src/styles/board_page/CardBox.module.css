@@ -10,7 +10,8 @@
 }
 
 .card_box:hover {
-  cursor: pointer;
+  cursor: -webkit-grab;
+  cursor: grab;
   background-color: #f0f0f0;
 }
 
@@ -42,7 +43,8 @@
 }
 
 .card_box_2:hover {
-  cursor: pointer;
+  cursor: -webkit-grab;
+  cursor: grab;
   background-color: #f0f0f0;
 }
 
@@ -83,6 +85,17 @@
 .card__delete_button:hover {
   background-color: #A9A9A9;
   color: #bf4342;
+  cursor: pointer;
+}
+
+.extend {
+  padding: 4px 6px 4px 6px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+}
+
+.extend:hover {
+  background-color: #A9A9A9;
   cursor: pointer;
 }
 /*# sourceMappingURL=CardBox.module.css.map */
