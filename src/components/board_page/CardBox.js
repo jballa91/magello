@@ -104,12 +104,18 @@ const CardBox = (props) => {
               className={styles.card_box_2}
             >
               <h3 className={styles.card_name}>{props.name}</h3>
-              <button
+              {/* <button
                 onClick={(e) => handleClick(e)}
                 className={styles.card__delete_button}
               >
                 Delete
-              </button>
+              </button> */}
+              <div
+                className={styles.card__delete_button}
+                onClick={(e) => handleClick(e)}
+              >
+                <i className="fas fa-trash-alt"></i>
+              </div>
             </div>
           )}
         </Draggable>
