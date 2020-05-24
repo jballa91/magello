@@ -62,7 +62,7 @@
 }
 
 .head_container_2 {
-  height: 200px;
+  min-height: 200px;
   width: 60%;
   background-color: #808080;
   opacity: .9;
@@ -168,6 +168,74 @@
   .card {
     margin: 0 5px 0 5px;
     padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .parallax_1 {
+    height: 200px;
+  }
+  .parallax_2 {
+    height: 200px;
+  }
+  .head_container_1 {
+    padding-bottom: 10px;
+    min-width: 90%;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .head_container_1 .headLine {
+    font-size: 16px;
+    margin: 20px 0 10px 20px;
+  }
+  .head_container_1 .blurb {
+    text-align: center;
+    font-size: 10px;
+    margin: 0px 30px 10px 30px;
+  }
+  .head_container_2 {
+    padding-bottom: 10px;
+    min-width: 90%;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .head_container_2 .headLine {
+    font-size: 16px;
+    margin: 20px 0 10px 20px;
+  }
+  .head_container_2 .blurb {
+    text-align: center;
+    font-size: 10px;
+    margin: 0px 30px 10px 30px;
+  }
+  .card_container {
+    height: 200px;
+  }
+  .card {
+    margin: 0 5px 0 5px;
+    height: 180px;
+    min-width: 100px;
+  }
+  .card .card_logo_container {
+    height: 30%;
+  }
+  .card .card_logo {
+    height: 30px;
+    width: 30px;
+  }
+  .card .card_blurb_container {
+    height: 70%;
+  }
+  .card .card_blurb_header {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+  .card .card_blurb_text {
+    margin: 5px 5px 0 5px;
+    text-align: center;
+    font-size: 9px;
   }
 }
 /*# sourceMappingURL=SplashPage.module.css.map */
