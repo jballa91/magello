@@ -55,7 +55,7 @@ const CardBox = (props) => {
                     className={styles.extend}
                     onClick={() => setModToggle(true)}
                   >
-                    <i className="fas fa-list"></i>
+                    <i class="fas fa-list"></i>
                   </div>
 
                   {/* <img
@@ -63,12 +63,18 @@ const CardBox = (props) => {
                     alt="Card details"
                     src={require("../../images/details.png")}
                   /> */}
-                  <button
+                  {/* <button
                     onClick={(e) => handleClick(e)}
                     className={styles.card__delete_button}
                   >
                     Delete
-                  </button>
+                  </button> */}
+                  <div
+                    className={styles.card__delete_button}
+                    onClick={(e) => handleClick(e)}
+                  >
+                    <i className="fas fa-trash-alt"></i>
+                  </div>
                   {/* <img
                     className={styles.card__delete_button}
                     onClick={(e) => handleClick(e)}

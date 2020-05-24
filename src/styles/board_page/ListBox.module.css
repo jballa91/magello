@@ -52,6 +52,7 @@
   margin: auto 10px;
   font-size: 12px;
   padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .list_box__delete_button:hover {

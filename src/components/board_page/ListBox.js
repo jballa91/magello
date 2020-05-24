@@ -57,12 +57,18 @@ const ListBox = (props) => {
             <div className={styles.list_box}>
               <div className={styles.list_box__name_delete}>
                 <h1 className={styles.list_box_name}>{`${props.list.name}`}</h1>
-                <button
+                {/* <button
                   onClick={(e) => handleClick(e)}
                   className={styles.list_box__delete_button}
                 >
                   Delete
-                </button>
+                </button> */}
+                <div
+                  className={styles.list_box__delete_button}
+                  onClick={(e) => handleClick(e)}
+                >
+                  <i className="fas fa-trash-alt"></i>
+                </div>
               </div>
               <Droppable droppableId={`${props.index}`}>
                 {(provided, snapshot) => (

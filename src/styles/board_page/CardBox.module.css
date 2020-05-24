@@ -74,24 +74,28 @@
 }
 
 .card__delete_button {
-  color: #8C1C13;
-  max-height: 24px;
-  background-color: #e0e0e0;
-  margin-right: 10px;
-  font-size: 12px;
-  padding: 5px 10px;
+  color: #383838;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 4px;
+  border-radius: 4px;
+  padding: 4px 6px 4px 6px;
 }
 
 .card__delete_button:hover {
-  background-color: #A9A9A9;
   color: #bf4342;
+  background-color: #A9A9A9;
   cursor: pointer;
 }
 
 .extend {
+  color: #383838;
   padding: 4px 6px 4px 6px;
   border-radius: 4px;
-  background-color: #e0e0e0;
 }
 
 .extend:hover {
