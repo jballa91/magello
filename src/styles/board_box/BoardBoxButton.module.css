@@ -59,4 +59,10 @@
   cursor: pointer;
   background-color: #A9A9A9;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .board_box_button__container {
+    width: 140px;
+  }
+}
 /*# sourceMappingURL=BoardBoxButton.module.css.map */

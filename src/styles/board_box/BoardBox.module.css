@@ -4,4 +4,10 @@
   height: 100px;
   width: 180px;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .board_card {
+    width: 140px;
+  }
+}
 /*# sourceMappingURL=BoardBox.module.css.map */

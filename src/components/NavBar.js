@@ -24,20 +24,20 @@ const NavBar = (props) => {
 
   return (
     <div className={styles.navbar} style={{ backgroundColor: color }}>
-      <div className={styles.navbar_left}>
+      <Link to="/" className={styles.navbar_left}>
         <img src={require("../images/ship1.gif")} alt={"Logo"} />
         <h1 className={styles.logo_text}>magello</h1>
-      </div>
+      </Link>
       <div className={styles.navbar_right}>
         {isAuthenticated && (
           <span className={styles.navlist}>
-            <Link className={styles.navlink} to="/">
+            <Link to="/" className={styles.navlink}>
               Home
             </Link>
-            <Link className={styles.navlink} to="/profile">
+            <Link to="/profile" className={styles.navlink}>
               Profile
             </Link>
-            <Link className={styles.navlink} to="/external-api">
+            <Link to="/external-api" className={styles.navlink}>
               External API
             </Link>
           </span>

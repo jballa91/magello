@@ -14,4 +14,12 @@
       flex-wrap: wrap;
   margin: 10px 0px 0px 5px;
 }
+
+@media (min-width: 320px) and (max-width: 411px) {
+  .board_card_container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 /*# sourceMappingURL=HomePageBoards.module.css.map */

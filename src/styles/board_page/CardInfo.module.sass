@@ -27,13 +27,13 @@
     align-items: center
     margin: 20px 0
     width: 460px
-    height: 50px
-    .card_info__name
-        font-size: 50px
+    min-height: fit-content
+    .card_info__title
+        font-size: 30px
         font-weight: 700
     .card_info__exit
-        height: 50px
-        width: 50px
+        height: 30px
+        width: 30px
         opacity: .6
         &:hover
             cursor: pointer
@@ -42,7 +42,24 @@
 .card_info__data_container
     background-color: $grey1
     width: 460px
-    height: 110px
+    min-height: 110px
+    margin-bottom: 10px
     box-sizing: border-box
     padding: 10px
     border-radius: 10px
+    overflow: auto
+
+@media (min-width: 320px) and (max-width: 530px)
+    .card_info__container
+        width: 80%
+    .card_info__title_exit_container
+        width: 80%
+        height: fit-content
+        .card_info__title
+            font-size: 20px
+            margin-right: 20px
+        .card_info__exit
+            height: 20px
+            width: 20px
+    .card_info__data_container
+        width: 80%

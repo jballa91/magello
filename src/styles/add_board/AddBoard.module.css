@@ -7,4 +7,10 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .add_board__container {
+    width: 290px;
+  }
+}
 /*# sourceMappingURL=AddBoard.module.css.map */

@@ -13,3 +13,29 @@
 
 .homepage_right
     width: 70%
+
+@media (min-width: 768px) and (max-width: 1112px)
+    .homepage_container
+        width: 100%
+    .homepage_left
+        width: 20%
+    .homepage_right
+        width: 80%
+
+@media (min-width: 412px) and (max-width: 767px)
+    .homepage_container
+        width: 100%
+    .homepage_left
+        width: 20%
+        margin-right: 5px
+    .homepage_right
+        width: 80%
+
+@media (min-width: 320px) and (max-width: 411px)
+    .homepage_container
+        width: 100%
+    .homepage_left
+        display: none
+    .homepage_right
+        width: 100%
+        justify-content: center

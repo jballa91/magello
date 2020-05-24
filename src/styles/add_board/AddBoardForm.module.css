@@ -70,4 +70,16 @@
   cursor: pointer;
   opacity: .7;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .add_board_form {
+    width: 290px;
+  }
+  .add_board_form__text {
+    width: 270px;
+  }
+  .add_board_form__color_submit_exit {
+    width: 270px;
+  }
+}
 /*# sourceMappingURL=AddBoardForm.module.css.map */

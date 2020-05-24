@@ -74,4 +74,10 @@
   cursor: pointer;
   background-color: #808080;
 }
+
+@media (min-width: 320px) and (max-width: 573px) {
+  .navlink {
+    display: none;
+  }
+}
 /*# sourceMappingURL=NavBar.module.css.map */
