@@ -62,7 +62,7 @@ const SplashPage = () => {
               The sea, she's a dangerous mistress
             </h3>
             <p className={styles.card_blurb_text}>
-              We all know you're a big brave boy, so you don't have to risk
+              We all know you're a big brave explorer, so you don't have to risk
               everything all willy-nilly. Let us help you plan for the worst.
             </p>
           </div>
