@@ -54,43 +54,126 @@ const BoardPage = (props) => {
     ) {
       return;
     }
-    const list = lists[source.droppableId];
-    const cardList = Array.from(list.Cards);
-    cardList.splice(source.index, 1);
-    cardList.splice(destination.index, 0, list.Cards[source.index]);
 
-    const newList = {
-      ...list,
-      Cards: cardList,
-    };
-    const token = await getTokenSilently();
-    const crizzards = newList.Cards;
+    //get the list dragged from and dragged to
+    const start = lists[source.droppableId];
+    const finish = lists[destination.droppableId];
 
-    crizzards.map(async (card, i) => {
-      card.index = i;
-      const res = await fetch(`${api}/cards/${card.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          id: card.id,
-          index: card.index,
-        }),
+    //if the dragged item is from the dropped list...
+    if (start === finish) {
+      const list = lists[source.droppableId];
+      const cardList = Array.from(list.Cards);
+      cardList.splice(source.index, 1);
+      cardList.splice(destination.index, 0, list.Cards[source.index]);
+
+      const newList = {
+        ...list,
+        Cards: cardList,
+      };
+      const token = await getTokenSilently();
+      const crizzards = newList.Cards;
+
+      crizzards.map(async (card, i) => {
+        card.index = i;
+        const res = await fetch(`${api}/cards/${card.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            id: card.id,
+            index: card.index,
+          }),
+        });
+
+        // const result = await res.json();
+        return;
       });
-      const result = await res.json();
-      return card;
-    });
 
-    const newLists = lists.map((list) => {
-      if (list.id === newList.id) {
-        return newList;
-      } else {
-        return list;
-      }
-    });
-    setLists(newLists);
+      const newLists = lists.map((list) => {
+        if (list.id === newList.id) {
+          return newList;
+        } else {
+          return list;
+        }
+      });
+      setLists(newLists);
+    }
+
+    // if the dropped list is different from start list
+    else {
+      // gunna need the token for later
+      const token = await getTokenSilently();
+
+      // Change startListCards
+      const startListCards = Array.from(start.Cards);
+      startListCards.splice(source.index, 1);
+      const newStartList = {
+        ...start,
+        Cards: startListCards,
+      };
+
+      // do the patch
+      const newStartListCardsArray = newStartList.Cards;
+      newStartListCardsArray.map(async (card, i) => {
+        card.index = i;
+        const res = await fetch(`${api}/cards/${card.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            id: card.id,
+            index: card.index,
+          }),
+        });
+        // const result = await res.json();
+        return;
+      });
+
+      // Change finishListCards
+      const finishListCards = Array.from(finish.Cards);
+      finishListCards.splice(destination.index, 0, start.Cards[source.index]);
+      const newFinishList = {
+        ...finish,
+        Cards: finishListCards,
+      };
+
+      // Do the patch
+      const newFinishListCardsArray = newFinishList.Cards;
+      newFinishListCardsArray.map(async (card, i) => {
+        card.index = i;
+
+        const res = await fetch(`${api}/cards/${card.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            id: card.id,
+            index: card.index,
+            listId: newFinishList.id,
+          }),
+        });
+        // const result = await res.json();
+        return;
+      });
+
+      // Update the state to reflect changes
+      const newLists = lists.map((list) => {
+        if (list.id === start.id) {
+          return newStartList;
+        } else if (list.id === finish.id) {
+          return newFinishList;
+        } else {
+          return list;
+        }
+      });
+      setLists(newLists);
+    }
   };
 
   if (loading) {
@@ -110,10 +193,10 @@ const BoardPage = (props) => {
         className={styles.boardpage_page}
         style={{ backgroundColor: board.backgroundColor }}
       >
-        <div className={styles.boardpage_container}>
-          {lists.map((list) => {
-            return (
-              <DragDropContext onDragEnd={onDragEnd} key={list.id}>
+        <DragDropContext onDragEnd={onDragEnd} key={board.id}>
+          <div className={styles.boardpage_container}>
+            {lists.map((list) => {
+              return (
                 <ListBox
                   list={list}
                   key={list.id}
@@ -122,11 +205,11 @@ const BoardPage = (props) => {
                   setLists={setLists}
                   boardBG={board.backgroundColor}
                 />
-              </DragDropContext>
-            );
-          })}
-          <AddList lists={lists} setLists={setLists} />
-        </div>
+              );
+            })}
+            <AddList lists={lists} setLists={setLists} />
+          </div>
+        </DragDropContext>
       </div>
     );
   }

@@ -12,8 +12,6 @@ const CardDeleteForm = (props) => {
   const cardId = props.id;
   const openClose = props.handler;
   const { lists, setLists } = useContext(AppContext);
-  console.log(props);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

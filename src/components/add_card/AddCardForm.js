@@ -15,8 +15,6 @@ const AddCardForm = (props) => {
   const [name, setName] = useState("");
   const [data, setData] = useState("");
   const { lists, setLists } = useContext(AppContext);
-  console.log(listIndex);
-  console.log(props.cards);
   const list = lists[listIndex];
 
   const handleSubmit = async (e) => {
@@ -40,7 +38,6 @@ const AddCardForm = (props) => {
       props.setCards([...props.cards, result.card]);
       const newLists = lists;
       newLists[listIndex].Cards = [...props.cards, result.card];
-      console.log(newLists);
       setLists([...newLists]);
       openClose();
     } else {

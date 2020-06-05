@@ -33,7 +33,6 @@ const ListDeleteForm = (props) => {
     });
 
     await setLists(newNewLists);
-    console.log(lists);
   };
 
   return (
