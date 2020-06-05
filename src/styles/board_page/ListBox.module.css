@@ -24,6 +24,10 @@
   margin: 10px 0 10px 20px;
   font-size: 16px;
   font-weight: 700;
+  max-width: 200px;
+  overflow: wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .container {
@@ -34,6 +38,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 1px;
 }
 
 .list_box__name_delete {
